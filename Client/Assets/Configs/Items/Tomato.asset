@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ItemType>k__BackingField: 0
   <Price>k__BackingField: 10
+  <ItemSprite>k__BackingField: {fileID: 21300000, guid: bb7faf4c850ef48cdb33c2bd17737619,
+    type: 3}

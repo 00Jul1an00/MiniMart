@@ -10,6 +10,8 @@ namespace MiniMartUI
         private ProdactionUIView _view;
         private ProdactionPlace _prodactionPlace;
 
+        private bool _isFirstCall = true;
+
         public ProdactionUIController(ProdactionUIView view, ProdactionPlace prodactionPlace)
         {
             _view = view;
@@ -36,9 +38,23 @@ namespace MiniMartUI
 
         private void OnItemsForProduceCountChange(List<SerializebleKeyValuePair<ItemConfig, int>> pairs)
         {
+            if (_isFirstCall)
+            {
+                _isFirstCall = false;
+
+                List<Sprite> spriteList = new List<Sprite>();
+
+                foreach (var pair in pairs)
+                {
+                    spriteList.Add(pair.Key.ItemSprite);
+                }
+
+                _view.InstantiateItemsUIProduceFrom(spriteList);
+            }
+
             List<KeyValuePair<Sprite, string>> pairsForView = new();
 
-            foreach(var pair in pairs)
+            foreach (var pair in pairs)
             {
                 pairsForView.Add(new(pair.Key.ItemSprite, pair.Value.ToString()));
             }
