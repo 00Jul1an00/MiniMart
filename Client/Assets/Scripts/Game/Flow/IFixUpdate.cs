@@ -1,4 +1,4 @@
 public interface IFixUpdate
 {
-    public void FixUpdate();
+    public void ManualFixUpdate();
 }

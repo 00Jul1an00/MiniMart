@@ -1,4 +1,4 @@
 public interface IAwake
 {
-    public void Awake();
+    public void ManualAwake();
 }

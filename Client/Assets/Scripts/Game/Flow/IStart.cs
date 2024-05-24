@@ -1,4 +1,4 @@
 public interface IStart
 {
-    public void Start();
+    public void ManualStart();
 }

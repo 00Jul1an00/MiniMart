@@ -13,6 +13,7 @@ namespace MiniMart
             Container.Bind<Player>().FromInstance(_player).AsSingle();
             BindInput();
             BindFlow();
+            BindControllers();
         }
 
         private void BindInput()
@@ -25,6 +26,14 @@ namespace MiniMart
         private void BindFlow()
         {
             Container.BindInterfacesAndSelfTo<GameFlowManager>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesAndSelfTo<ProdactionsHolder>().FromComponentInHierarchy().AsSingle();
+            Container.BindInterfacesAndSelfTo<StoragesHolder>().FromComponentInHierarchy().AsSingle();
+        }
+
+        private void BindControllers()
+        {
+            Container.BindInterfacesAndSelfTo<GrabItemController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PutItemController>().AsSingle();
         }
     }
 }

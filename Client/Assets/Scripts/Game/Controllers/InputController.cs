@@ -13,10 +13,10 @@ namespace MiniMart
         private void Construct(IInput input, Player player)
         {
             _currentInput = input;
-            _playerMoveComponent = player.GetComponent<MoveComponent>();
+            _playerMoveComponent = player.MoveComponent;
         }
 
-        public void FixUpdate()
+        public void ManualFixUpdate()
         {
             _playerMoveComponent.MoveByRigidbodyVelocityAndRotate(_currentInput.CurrentInput);
         }

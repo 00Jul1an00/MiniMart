@@ -1,9 +1,15 @@
 using UnityEngine;
 
-public class MoveComponent : MonoBehaviour
+public class MoveComponent
 {
-    [SerializeField] private Rigidbody _rb;
-    [SerializeField] private float _speed;
+    private Rigidbody _rb;
+    private float _speed;
+
+    public MoveComponent(Rigidbody rb, float baseSpeed)
+    {
+        _rb = rb;
+        _speed = baseSpeed;
+    }
 
     public void MoveByRigidbodyVelocityAndRotate(Vector3 direction)
     {
@@ -12,7 +18,12 @@ public class MoveComponent : MonoBehaviour
 
         if (direction.x != 0 || direction.z != 0)
         {
-            transform.rotation = Quaternion.LookRotation(direction);
+            _rb.transform.rotation = Quaternion.LookRotation(direction);
         }
+    }
+
+    public void IncreaseSpeed(float increaseBy)
+    {
+        _speed += increaseBy;
     }
 }
